@@ -18,9 +18,6 @@ export class AppComponent implements OnInit{
   ngOnInit(): void {
     this.setDate(); 
     this.sidebar=this.rout.config;
-
-    console.log(this.sidebar);
-    
   }
   title = 'Ak Studio';
 

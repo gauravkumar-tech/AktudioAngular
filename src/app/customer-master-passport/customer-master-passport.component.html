@@ -11,34 +11,83 @@
         </div>
     </mat-card>
     <!-- content -->
-    <form>
-        <mat-card style="background-color: rgb(188, 231, 142);">
+    <form [formGroup]="CustomerCreation">
+        <mat-card style="background-color: rgb(188, 231, 142); margin-top: 5px; height: 65vh;">
             <div class="contentclass">
-                <mat-card>
+                <mat-card style="height: 60vh;">
                     <div style="display: flex; text-align: center; justify-content: center; margin-top: 5px;">
                         <div style="padding: 5px 5px;">Normal</div>
                         <div>
-                            <mat-slide-toggle class="example-margin" color="primary">
+                            <mat-slide-toggle class="example-margin" color="primary" (click)="slideValue()">
                             </mat-slide-toggle>
                         </div>
                         <div style="padding: 5px 5px;">Urgent</div>
                     </div>
                     <div class="formClass">
-                        <div>
-                            <mat-form-field appearance="outline">
+                        <div fxLayoutAlign="start-between center" fxLayout="row">
+                            <mat-form-field appearance="outline" fxFlex="35">
                                 <mat-label>Customer Name</mat-label>
-                                <input matInput placeholder="Enter Customer name">
+                                <input matInput placeholder="Enter Customer name" formControlName="customername">
                                 <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
                                 <mat-hint>Customer Name</mat-hint>
                             </mat-form-field>
-
-
-
+                            <div fxFlex="5" fxLayout="row"></div>
+                            <mat-form-field appearance="outline" fxFlex="35">
+                                <mat-label>Date photo created</mat-label>
+                                <input matInput [matDatepicker]="picker" formControlName="photocreated">
+                                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                                <mat-datepicker #picker></mat-datepicker>
+                            </mat-form-field>
                         </div>
 
-
-
-
+                        <div fxLayoutAlign="start-between center" fxLayout="row">
+                            <mat-form-field appearance="outline" fxFlex="35">
+                                <mat-label>delivery timing</mat-label>
+                                <input matInput [matDatepicker]="picker1" formControlName="deliverytime">
+                                <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                                <mat-datepicker #picker1></mat-datepicker>
+                            </mat-form-field>
+                            <div fxFlex="5" fxLayout="row"></div>
+                        </div>
+                        <div fxLayoutAlign="start-between center" fxLayout="row">
+                            <mat-form-field appearance="outline" fxFlex="30">
+                                <mat-label>Total Amount</mat-label>
+                                <input matInput placeholder="Enter Total Amount" formControlName="totalamount">
+                                <mat-icon matSuffix>attach_money</mat-icon>
+                                <mat-hint>Total Amount</mat-hint>
+                            </mat-form-field>
+                            <div fxFlex="5" fxLayout="row"></div>
+                            <mat-form-field appearance="outline" fxFlex="30">
+                                <mat-label>Advance</mat-label>
+                                <input matInput placeholder="Enter Advance Paid" formControlName="advancepaid">
+                                <mat-icon matSuffix>attach_money</mat-icon>
+                                <mat-hint>Enter Advance Money</mat-hint>
+                            </mat-form-field>
+                            <div fxFlex="5" fxLayout="row"></div>
+                            <mat-form-field appearance="outline" fxFlex="30">
+                                <mat-label>Balance Money</mat-label>
+                                <input matInput placeholder="Enter Balance" formControlName="balancemoney">
+                                <mat-icon matSuffix>attach_money</mat-icon>
+                                <mat-hint>Balance Money</mat-hint>
+                            </mat-form-field>
+                            <div fxFlex="5" fxLayout="row"></div>
+                        </div>
+                        <mat-card>
+                            <div fxLayoutAlign="start-around stretch" fxLayout="column">
+                                <div>
+                                    <mat-label>Upload Photo?</mat-label>
+                                </div>
+                                <hr>
+                                <div fxFlex="35">
+                                    <input type="file" (change)="getFile($event)">
+                                </div>
+                            </div>
+                        </mat-card>
+                        <div fxLayoutAlign="end center" fxLayout="row" style="margin-top: 10px;">
+                            <button mat-raised-button color="primary" (click)="getFormValue()">Create Customer
+                                <mat-icon>verified_user</mat-icon>
+                            </button>
+                        </div>
                     </div>
                 </mat-card>
             </div>
