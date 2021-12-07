@@ -1,0 +1,28 @@
+.example-spacer {
+    flex: 1 1 auto;
+}
+
+.shadow {
+    box-shadow: 0 0 10px 0 black;
+}
+
+.contentalign {
+    display: flex;
+}
+
+.textcenter {
+    flex: 1 1 auto;
+    text-align: center;
+}
+
+.example-container {
+    width: 400px;
+    height: 200px;
+    margin: 10px;
+    border: 1px solid #555;
+}
+
+.singlemenuhover :hover {
+    color: #4A00E0;
+    font-size: larger;
+}
